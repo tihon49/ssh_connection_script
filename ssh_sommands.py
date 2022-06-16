@@ -14,7 +14,7 @@ def ssh_connection(host):
 
 
 def ssh_command(host, command) -> list:
-    """выполнение комманд на узле"""
+    """выполнение команд на узле"""
     client = ssh_connection(host)
     stdin, stdout, stderr = client.exec_command(command)
     result = stdout.read().decode('utf-8').split()
@@ -25,7 +25,7 @@ def ssh_command(host, command) -> list:
 def ssh_session_commands(host, commands: list) -> dict:
      """
      сессия SSH внутри котороый можно
-     выполнять последовательность комманд
+     выполнять последовательность команд
      """
      result = {'host': host,
                'commands': [],
